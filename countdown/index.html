@@ -1,0 +1,146 @@
+<html>
+	<head>
+	<title>Happy Birthday Fish</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta property="og:title" content="Happy Birthday Fish" />
+<meta property="og:type" content="website" />
+<meta property="og:description"  content="my little gift 4r u fish "/>
+<meta property="og:url" content="http://happybirthday.heart" />
+<meta property="og:image" content="http://images.clipartpanda.com/birthday-20cake-20clipart-MTLb6dRTa.jpeg"/>
+    <!-- Bootstrap -->
+	<link rel="stylesheet" href="css/flipclock.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<script src="js/jquery.js"></script>
+
+		<script src="js/flipclock.js"></script>	
+		<style>
+			 
+			body{
+				background-color:bisque;
+				}
+			.container{
+				background-color:bisque;
+				height:100%;
+			}  
+		</style>
+	</head>
+	<body>
+	<div class="container">
+	      <img src="images/partyflag.png" width="100%">
+		<p class=" wishes lead text-center" style="font-style:italic;">I know your birthday is still a few days away, but Iam going to begin celebrating right from today. Happy birthday Fish.</p>
+		<div class="row time">
+			<div class="clock" style="margin:2em;"></div>
+		</div>
+	<div class="text-center" id="baby">
+		<img src="images/happybday.png" width="150em" style="margin-top:25px;"  >
+		</div>
+		<img src="images/partyflag.png" width="100%" style="margin-top:10%;">
+	</div >
+	<script type="text/javascript">
+			var clock;
+			var date = new Date();
+			var day = date.getDate();
+			var month = date.getMonth();
+			var year = date.getFullYear();
+			var fDate  = new Date(year+"-12-019");
+			var remain = fDate.getTime() / 1000 - date.getTime() /1000;
+			var diff;
+		$(document).ready(function() {
+			var w = $(window).width();
+				if(w<700){
+			$(".clock").css("zoom","0.5").css("-moz-transform","scale(0.5)").css("paading-left:","0px").css("margin-left:","0px");;
+			}
+			else{
+				$(".time").css("margin-left","200px");
+				
+			}
+			$(window).resize(
+					function(){
+						var width = $(window).width();
+						if(width<700){
+			    $(".clock").css("zoom","0.5").css("-moz-transform","scale(0.5)");
+			}
+						else{
+				$(".clock").css("zoom","").css("-moz-transform","");
+				$(".time").css("margin-left","30px").css("margin-right","30px");
+			}
+					});
+				if(day == 19 && month == 11)
+					{
+					$(".wishes").html("On your special day, I wish you good luck. I hope this wonderful day will fill up your heart with joy and blessings. Have a fantastic birthday, celebrate the happiness on every day of your life. Happy Birthday Meenu !!");
+					$("#baby").prepend('<img src="images/bdaycake.png"  width="150em" style="border-radius:20px;margin-bottom:5px" > </br>');
+					}
+				else
+				{
+					if(remain > 0)
+					{
+					console.log(fDate.getTime() / 1000 - date.getTime() /1000);
+					birthdayClock(year);
+					wishes(month);
+					}
+					else{
+						year+=1;
+						birthdayClock(year);
+						$(".wishes").html("Always do your best. What you plant now, you will harvest later.");
+					}
+				  }
+				
+			
+				function birthdayClock(yr){
+				// Grab the current date
+				var currentDate = new Date();
+
+				// Set some date in the future. In this case, it's always Jan 1
+				var futureDate  = new Date(yr+"-12-019");
+
+				// Calculate the difference in seconds between the future and current date
+				 diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
+
+				// Instantiate a coutdown FlipClock
+				clock = $('.clock').FlipClock(diff, {
+					clockFace: 'DailyCounter',
+					countdown: true,
+					callbacks: {
+		        	stop: function() {
+						$(".wishes").html("On your special day, I wish you good luck. I hope this wonderful day will fill up your heart with joy and blessings. Have a fantastic birthday, celebrate the happiness on every day of your life. Happy Birthday Meenu !!");
+					$("#baby").prepend('<img src="images/bdaycake.png"  width="150em" style="border-radius:20px;margin-bottom:5px" > </br>');
+		        	}
+		        }
+				});
+				}
+				function wishes(mn){
+					switch(mn){
+						case 0 :$(".wishes").html("As the New Year approaches us with hopes a new, here is to wishing you and your family a wonderful year ahead.Happy New Year "+year+"!");
+							break;
+						case 1:$(".wishes").html("Start where you are. Use what you have. Do what you can.");
+							break;
+						case 2:$(".wishes").html("The will to win, the desire to succeed, the urgeto reach your full potential...these are the keys that will unlock the door to personal excellence.");
+							break;
+						case 3:$(".wishes").html("Don't watch the clock; do what it does. Keep going.");
+							break;
+						case 4:$(".wishes").html("Failure will never overtake me if my determination to succeed is strong enough.");
+							break;
+						case 5:$(".wishes").html("Always do your best. What you plant now, you will harvest later.");
+							break;
+						case 6:$(".wishes").html("Happiness is not something you postpone for the future; it is something you design for the present.");
+							break;
+						case 7:$(".wishes").html("Nothing is impossible, the word itself says 'I'm possible'!");
+							break;
+						case 8:$(".wishes").html("Keep your face always toward the sunshine and shadows will fall behind you.");
+							break;
+						case 9:$(".wishes").html("The best preparation for tomorrow is doing your best today.");
+							break;
+						case 10:$(".wishes").html("I want your birthday to be celebrated as a national holiday because then I will get a day off. Happy birthday.");
+							break;
+						case 11:$(".wishes").html("I know your birthday is still a few days away, but Iam going to begin celebrating right from today. Advance Happy birthday Meenu.");
+							break;
+					}
+				}
+				
+			});
+		</script>
+		
+	</body>
+</html>

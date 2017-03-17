@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Findoo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:title" content="Findoo" />
+<meta property="og:type" content="website" />
+<meta property="og:description"  content="A simple search engine created for tamil people"/>
+<meta property="og:url" content="http://findoo.tk" />
+<meta property="og:image" content="http://www.iconarchive.com/download/i76409/rafiqul-hassan/blogger/Search.ico"/>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<script src="jquery.js">
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+</head>
+<body>
+	<div class="container text-center">
+	<img class="img" style="margin-top:20%" src="findoo.png">
+	<br>
+	<br>
+	<form method="get" action="search.php">
+	<input type="text" name="query" placeholder="Enter your search query.." style="width:15em">
+	<button type="submit" class="btn btn-info"> 
+	 <span class="glyphicon glyphicon-search"></span>
+		</button>
+	<br>
+	<div class="text-center">
+	<div class="text-center" style="position:relative">
+	<div data-target="#au" data-toggle="collapse">
+	Anna University <span class=" glyphicon glyphicon-chevron-down"></span>	
+	<hr style="margin:0;width:auto">
+	</div>
+	<div id="au" class="collapse in">
+		<input type="radio" name="search" value="auresult">AU Result<h6>(enter the register number in search box)</h6>
+	</div>
+	<div data-target="#app" data-toggle="collapse">
+	Android App <span class=" glyphicon glyphicon-chevron-down"></span>	
+	<hr style="margin:0;width:auto">
+	</div>
+	<div id="app" class="collapse">
+		<input type="radio" name="search" value="apk" >APK
+	</div>
+	<div data-target="#ly" data-toggle="collapse">
+	Lyrics<span class=" glyphicon glyphicon-chevron-down"></span>	
+	<hr style="margin:0;width:auto">
+	</div>
+	<div id="ly" class="collapse">
+		<input type="radio" name="search" value="pv" >Padal Varigal
+	</div>
+	<div data-target="#sng" data-toggle="collapse">
+	Mp3 Songs<span class=" glyphicon glyphicon-chevron-down"></span>	
+	<hr style="margin:0;width:auto">
+	</div>
+	<div id="sng" class="collapse">
+		<input type="radio" name="search" value="song" >Mp3 
+	</div>
+	<div data-target="#mvi" data-toggle="collapse">
+	Mp4 Movies<span class=" glyphicon glyphicon-chevron-down"></span>	
+	<hr style="margin:0;width:auto">
+	</div>
+	<div id="mvi" class="collapse">
+		<input type="radio" name="search" value="movie" >Movies Collection
+	</div>
+	<div data-target="#yt" data-toggle="collapse">
+	Youtube Downloader<span class=" glyphicon glyphicon-chevron-down"></span>	
+	<hr style="margin:0;width:auto">
+	</div>
+	<div id="yt" class="collapse">
+		<input type="radio" name="search" value="ytdown" >Download Video<h6>(enter the url of video in search box)</h6>
+	</div>
+	
+	
+		</div>
+		</div>	
+		</form>
+	</div>
+</body>
+</html>

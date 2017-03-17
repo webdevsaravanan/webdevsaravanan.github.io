@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<title>Color Cube || JavaScript</title>
+	<style>
+	a{
+		text-decoration:none;
+	}
+    table{
+		margin-top:40px;
+		margin-left:25%;
+		border-color:black;
+		padding:0;
+		background-color:black;
+	}
+	td{
+	   border:0;
+	   padding:0;
+	   margin:0;
+	}
+	tr{
+		 border:0;
+	     padding:0;
+	     margin:0;
+	}
+	#b1{
+		width:50px;
+		height:50px;
+		background-color:green;
+	}
+	#b2{
+	    width:50px;
+		height:50px;
+		background-color:red;
+	}
+	#b3{
+		width:50px;
+		height:50px;
+		background-color:blue;
+	}
+	#b4{
+		width:50px;
+		height:50px;
+		background-color:yellow;
+	}
+	#content{
+		margin-top:25%
+		width:50%;
+		height:50%;
+	}
+	#dev{
+	clear:both;
+	background-color:white;
+	margin-top:50px;
+	border-bottom:30px;
+	width:200px;
+	border-radius: 8px;
+	padding-left: 8px;
+	margin-right: 50px;
+	margin-bottom: 50px;
+	margin-left: 25%;
+	text-align: center;
+	}
+	h5,#result{
+	border-bottom:30px;
+	border-radius: 8px;
+	margin-top:8px;
+	width:100px;
+	height:50px;
+	margin-left:30%;
+	text-align:center;
+	padding:0;
+	}
+	h1{
+	margin-bottom:0;
+	}
+	#score{
+		float:left;
+		border-bottom:30px;
+		border-radius: 8px;
+		background-color:white;
+	    margin-top:20px;
+		width:100px;
+		height:70px;
+		margin-left:22%;
+		text-align:center;
+		padding:0;
+		margin-bottom:20px;
+		
+	}
+	button{
+		margin:2px;
+	}
+	p{
+	 padding:0;
+	 margin:0;
+	}
+	#best{
+		float:left;
+	    border-bottom:3px;
+		border-radius: 8px;
+	    margin-top:20px;
+		margin-left:8px;
+		width:100px;
+		height:70px;
+		text-align:center;
+		border:0;
+		font-size:1.2em;
+	}
+
+   
+   </style>
+</head>
+<body>
+	<div id="content">
+	<div id="result">
+	<h5 align="center"> Click the color in the cube </h5>
+	</div>
+	
+	<div>
+	  <table width="156" height="157" border='1'>
+	     <tr>
+	      <td width="133" height="53" id="b1" style="background-color:red;"></td>
+	      <td width="8" id="b2" style="background-color:green;"></td>
+        </tr>
+	    <tr>
+	      <td height="85" id="b3" style="background-color:blue"></td>
+	      <td id="b4" style="background-color:yellow;"></td>
+        </tr>
+      </table>
+	  <div id="score">
+      <p>clicks</p>
+      <P id="clicks"></P>
+	  <button>Reset</button>
+	  </div>
+	  <p id="best"></p>
+	 </div>
+	
+	<p align="justify" id="dev"><b> Developed</b> by <b><a href="http://m.facebook.com/webdevsaravanan" target="_blank">Saravanan</a></b> with <i>JavaScript</i></p>
+	<div align="justify"> </div>
+    </div>
+<script>
+	window.onload = function(){ 
+		var time = 1;
+		var bestScore;
+		var clicks = 0;
+		var i = 1;
+		var rmv = document.querySelector("#result");
+		document.querySelector("button").addEventListener("click",rst,false);
+		function rst(){
+		//reset button....
+			document.querySelector("table").addEventListener("click",myFunction,false);
+		document.querySelector("#b1").style.backgroundColor = "red";
+		document.querySelector("#b2").style.backgroundColor = "green";
+		document.querySelector("#b3").style.backgroundColor = "blue";
+		document.querySelector("#b4").style.backgroundColor = "yellow";
+			clicks = 0;
+		document.querySelector("#clicks").innerHTML ="";
+		document.querySelector("body").style.backgroundColor = "white";
+		rmv.innerHTML="Click the color in the cube";
+		rmv.style.backgroundColor="";
+		}
+	
+document.querySelector("table").addEventListener("click",myFunction,false);
+		function myFunction(e){
+		
+		if(document.querySelector("#result")){
+		rmv.innerHTML = "";
+		//remove the #result div..
+		}
+		if(e.srcElement.tagName == "TD")//checking the tagname to get td tag
+		{
+		++clicks;
+			
+		document.querySelector("#clicks").innerHTML = clicks;
+		//add click event to table ..
+		if(clicks%7 == 0){
+			if(e.srcElement.id != "b"+i){
+			  e.srcElement.style.backgroundColor = document.querySelector("#b"+i).style.backgroundColor;
+			  //color game code...
+			  document.querySelector("body").style.backgroundColor=e.srcElement.style.backgroundColor;
+		b1 = document.querySelector("#b1").style.backgroundColor;
+		b2 = document.querySelector("#b2").style.backgroundColor;
+		b3 = document.querySelector("#b3").style.backgroundColor;
+		b4 = document.querySelector("#b4").style.backgroundColor;
+			}
+			else{
+			document.querySelector("body").style.backgroundColor=e.srcElement.style.backgroundColor;
+		    e.srcElement.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+			}
+		}
+	
+		else{
+		//changing the background color of body
+		document.querySelector("body").style.backgroundColor=e.srcElement.style.backgroundColor;
+		e.srcElement.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);//creating new hexcode for color
+		}
+		}
+		if(b1 == b2&& b2 == b3 && b3 == b4) 
+		{
+		//for game over...
+		
+		b1="red";
+		b2="green";
+		b3="blue";
+		b4="yellow";
+		document.querySelector("table").removeEventListener("click",myFunction,false);
+		//removing the eventlistener..
+		rmv.innerHTML="Game Over </br><button>Reset</button>";
+		rmv.style.backgroundColor="white";
+		document.querySelector("button").addEventListener("click",rst,false);
+		//bestScore calclulation..
+		console.log(time);
+		if(time > 1){
+		 if(clicks < bestScore){
+			bestScore = clicks;
+			console.log("bs");
+		 }
+		}
+		else{
+		console.log(clicks);
+		bestScore = clicks;
+		}
+		document.querySelector("#best").innerHTML ="Best </br>"+bestScore;
+		document.querySelector("#best").style.backgroundColor="white";
+		time++;
+		}
+		}
+	};
+	
+	
+	  </script>
+</body>
+</html>
