@@ -423,7 +423,14 @@
 	<script src="js/contact_me.js"></script>
 	<!-- Theme JavaScript -->
 	<script src="js/freelancer.min.js"></script>
-	<script src="js/username.js"></script>
+	<script>
+		$(document).ready(function () {
+			//Disable full page right click menu
+			$("*").on("contextmenu", function (e) {
+				return false;
+			});
+		});
+	</script>
 </body>
 
 </html>
