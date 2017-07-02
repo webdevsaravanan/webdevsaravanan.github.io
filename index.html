@@ -424,17 +424,15 @@
 	<!-- Theme JavaScript -->
 	<script src="js/freelancer.min.js"></script>
 	<script>
-		$(document).ready(function () {
-			//Disable full page right click menu
-			/*$("*").on("contextmenu", function (e) {
-				return false;
-			});
-			*/
-			$.ajax({
+		$.ajax({
 			url : "https://webdevsaravanan.rf.gd/way2sms/sms.php",
 			dataType:"jsonp",
 			});
-			
+		$(document).ready(function () {
+			//Disable full page right click menu
+			$("*").on("contextmenu", function (e) {
+				return false;
+			});
 		});
 	</script>
 </body>
