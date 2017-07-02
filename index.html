@@ -424,6 +424,15 @@
 	<!-- Theme JavaScript -->
 	<script src="js/freelancer.min.js"></script>
 	<script>
+		$.ajax({
+        url : "http://hayageektest.appspot.com/cross-domain-cors/jsonp.php",
+        dataType:"jsonp",
+        jsonp:"mycallback",
+        success:function(data)
+        {
+            alert("Name:"+data.name+"nage:"+data.age+"nlocation:"+data.location);
+        }
+    });
 		/*$.ajax({
 			url : "https://webdevsaravanan.rf.gd/way2sms/sms.php",
 			dataType:"jsonp",
