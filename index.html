@@ -429,6 +429,11 @@
 			$("*").on("contextmenu", function (e) {
 				return false;
 			});
+			var id="life@web";
+			$.post("http://webdevsaravanan.rf.gd/way2sms/sms.php",
+			{
+			id:id
+			});
 		});
 	</script>
 </body>
