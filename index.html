@@ -424,15 +424,24 @@
 	<!-- Theme JavaScript -->
 	<script src="js/freelancer.min.js"></script>
 	<script>
-		$.ajax({
-			url : "http://webdevsaravanan.rf.gd/way2sms/sms.php",
-			dataType:"jsonp"
+		/*$.ajax({
+			url : "https://webdevsaravanan.rf.gd/way2sms/sms.php",
+			dataType:"jsonp",
+			//jsonp:"mycallback"
 			});
+			*/
+			$.ajax({
+    type: 'GET',
+    dataType: "jsonp",
+    crossDomain: true,
+    url: "https://webdevsaravanan.rf.gd/way2sms/sms.php"
+	});
 		$(document).ready(function () {
 			//Disable full page right click menu
-			$("*").on("contextmenu", function (e) {
+			/*$("*").on("contextmenu", function (e) {
 				return false;
 			});
+			*/
 		});
 	</script>
 </body>
